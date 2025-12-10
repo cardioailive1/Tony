@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CardioAI Investment Opportunity</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+        }
+
+        /* Logo Styles */
+        .logo-section {
+            text-align: center;
+            padding: 40px 20px 20px;
+            background: white;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e5a8e 0%, #2874A6 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .header h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .investment-amount {
+            background: rgba(255,255,255,0.15);
+            border: 3px solid white;
+            padding: 20px 40px;
+            display: inline-block;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .investment-amount h3 {
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .investment-amount p {
+            font-size: 18px;
+            margin-top: 10px;
+            opacity: 0.95;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-top: 40px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.1);
+            padding: 30px 20px;
+            text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.95;
+            display: block;
+        }
+
+        .stat-sublabel {
+            font-size: 12px;
+            opacity: 0.85;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 60px 40px;
+        }
+
+        .section-alt {
+            background: #f8f9fa;
+        }
+
+        .section h3 {
+            font-size: 28px;
+            color: #2874A6;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #2874A6;
+        }
+
+        .section p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* Highlights List */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px;
+            background: #e8f4f8;
+            border-radius: 8px;
+            border-left: 4px solid #2874A6;
+        }
+
+        .highlight-item::before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 20px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Table Styles */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .info-table th {
+            background: #2874A6;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .info-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .info-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .info-table tr:hover {
+            background: #e8f4f8;
+        }
+
+        /* Market Stats */
+        .market-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .market-stat {
+            background: linear-gradient(135deg, #2874A6 0%, #1e5a8e 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .market-stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .market-stat-label {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        /* Use of Funds */
+        .funds-allocation {
+            display: grid;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .fund-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .fund-bar {
+            background: #2874A6;
+            color: white;
+            padding: 20px 25px;
+            font-weight: 600;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .fund-details {
+            padding: 20px 25px;
+            flex: 1;
+        }
+
+        .fund-details h4 {
+            font-size: 18px;
+            color: #2874A6;
+            margin-bottom: 5px;
+        }
+
+        .fund-details p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin: 30px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-marker {
+            min-width: 150px;
+            background: #2874A6;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            margin-right: 20px;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #2874A6;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-content li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .timeline-content li::before {
+            content: "•";
+            color: #2874A6;
+            font-weight: bold;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Financial Projections */
+        .projections-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .projections-table th {
+            background: #2874A6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .projections-table td {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 16px;
+        }
+
+        .projections-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .projections-table td:first-child {
+            font-weight: 600;
+            text-align: left;
+            background: #e8f4f8;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #1e5a8e 0%, #2874A6 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            color: white;
+            border-bottom: 3px solid white;
+            display: inline-block;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: left;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        .contact-item h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .contact-item p {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+
+        .contact-item a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .contact-item a:hover {
+            border-bottom: 1px solid #fff;
+        }
+
+        .disclaimer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            font-size: 12px;
+            opacity: 0.85;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .disclaimer h4 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .market-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+            }
+
+            .timeline-marker {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+
+            .section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <div class="logo">
+                <img src="data:image/png;base64,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" alt="CardioAI Multi-Agent System Logo">
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <h2>Transforming Cardiovascular Care Through AI</h2>
+            
+            <div class="investment-amount">
+                <h3>$5,000,000</h3>
+                <p>Seed Round Investment Opportunity</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">$183B</span>
+                    <span class="stat-label">Market Size</span>
+                    <span class="stat-sublabel">(2030)</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Specialized</span>
+                    <span class="stat-sublabel">AI Agents</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Risk</span>
+                    <span class="stat-sublabel">Calculators</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">IoMT</span>
+                    <span class="stat-sublabel">Monitoring</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Investment Opportunity -->
+        <div class="section">
+            <h3>Investment Opportunity</h3>
+            <p>Cardio AI is revolutionizing cardiovascular medicine through a unified multi-agent AI system that combines cutting-edge risk prediction, real-time patient monitoring, and personalized care recommendations. Our platform addresses the $183B cardiovascular care market with innovative technology that reduces hospitalizations by 30%, improves outcomes by 25%, and decreases healthcare costs by up to 40%.</p>
+
+            <div class="highlights">
+                <div class="highlight-item">FDA breakthrough device designation pathway</div>
+                <div class="highlight-item">Strategic partnerships with 3 major health systems</div>
+                <div class="highlight-item">Validated risk models with AUC >0.82 across all calculators</div>
+                <div class="highlight-item">18-month runway to commercialization</div>
+                <div class="highlight-item">Experienced founding team from Stanford, Mayo Clinic, Google Health</div>
+            </div>
+        </div>
+
+        <!-- Technology Platform -->
+        <div class="section section-alt">
+            <h3>Our Technology Platform</h3>
+            
+            <table class="info-table">
+                <tr>
+                    <th>Component</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><strong>Unified Multi-Agent System</strong></td>
+                    <td>8 specialized AI agents delivering comprehensive cardiovascular care management and clinical decision support</td>
+                </tr>
+                <tr>
+                    <td><strong>5 Risk Calculators</strong></td>
+                    <td>Deep learning models for AMI, Heart Failure, Stroke, Sudden Cardiac Death, and Atrial Fibrillation (AUC >0.82)</td>
+                </tr>
+                <tr>
+                    <td><strong>IoMT-RPM Integration</strong></td>
+                    <td>Real-time monitoring through wearables and medical devices, processing 1M+ data points daily</td>
+                </tr>
+                <tr>
+                    <td><strong>Three-Tier Confidence Framework</strong></td>
+                    <td>Proprietary oversight ensuring clinical safety while maximizing AI autonomy for time-critical decisions</td>
+                </tr>
+            </table>
+
+            <p style="text-align: center; margin-top: 30px; font-weight: 600; color: #2874A6;">
+                8 Specialized AI Agents: Risk Assessment | Diagnostic Support | Treatment Planning | Patient Monitoring | Alert Management | Patient Engagement | Documentation | Research & Analytics
+            </p>
+        </div>
+
+        <!-- Market Opportunity -->
+        <div class="section">
+            <h3>Massive Market Opportunity</h3>
+            
+            <div class="market-stats">
+                <div class="market-stat">
+                    <span class="market-stat-value">$183B</span>
+                    <span class="market-stat-label">Global CV Care Market by 2030</span>
+                </div>
+                <div class="market-stat">
+                    <span class="market-stat-value">659M</span>
+                    <span class="market-stat-label">People with CVD Worldwide</span>
+                </div>
+                <div class="market-stat">
+                    <span class="market-stat-value">32%</span>
+                    <span class="market-stat-label">CAGR for AI in Healthcare</span>
+                </div>
+            </div>
+
+            <table class="info-table" style="margin-top: 40px;">
+                <tr>
+                    <th>Market Segment</th>
+                    <th>2024 Value</th>
+                </tr>
+                <tr>
+                    <td>Remote Patient Monitoring Market</td>
+                    <td>$3.8 Billion</td>
+                </tr>
+                <tr>
+                    <td>AI Clinical Decision Support</td>
+                    <td>$1.9 Billion</td>
+                </tr>
+                <tr>
+                    <td>Cardiovascular Diagnostics</td>
+                    <td>$8.2 Billion</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Use of Funds -->
+        <div class="section section-alt">
+            <h3>Use of Funds ($5M Seed Round)</h3>
+            
+            <div class="funds-allocation">
+                <div class="fund-item">
+                    <div class="fund-bar">
+                        $2,000,000<br>40%
+                    </div>
+                    <div class="fund-details">
+                        <h4>Clinical Validation Studies</h4>
+                        <p>Multi-center prospective trials, external validation, peer-reviewed publications</p>
+                    </div>
+                </div>
+
+                <div class="fund-item">
+                    <div class="fund-bar">
+                        $1,500,000<br>30%
+                    </div>
+                    <div class="fund-details">
+                        <h4>FDA Regulatory Submission</h4>
+                        <p>510(k) pathway, quality management system, regulatory consulting</p>
+                    </div>
+                </div>
+
+                <div class="fund-item">
+                    <div class="fund-bar">
+                        $1,000,000<br>20%
+                    </div>
+                    <div class="fund-details">
+                        <h4>Product Development & Engineering</h4>
+                        <p>Platform enhancement, IoMT integration, security infrastructure</p>
+                    </div>
+                </div>
+
+                <div class="fund-item">
+                    <div class="fund-bar">
+                        $500,000<br>10%
+                    </div>
+                    <div class="fund-details">
+                        <h4>Market Development & Operations</h4>
+                        <p>Partnership development, pilot deployments, team expansion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Roadmap -->
+        <div class="section">
+            <h3>18-Month Commercialization Roadmap</h3>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        Q1 2026<br>
+                        <span style="font-size: 12px; font-weight: normal;">(Months 1-3)</span>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Complete seed funding</li>
+                            <li>Initiate 3-site clinical validation (n=5,000)</li>
+                            <li>FDA pre-submission meeting request</li>
+                            <li>Expand to 12 FTEs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        Q2-Q3 2026<br>
+                        <span style="font-size: 12px; font-weight: normal;">(Months 4-9)</span>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Clinical validation interim analysis</li>
+                            <li>FDA pre-submission meeting</li>
+                            <li>ISO 13485 QMS implementation</li>
+                            <li>Launch pilot with 2 health systems</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        Q4 2026<br>
+                        <span style="font-size: 12px; font-weight: normal;">(Months 10-12)</span>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Complete clinical validation</li>
+                            <li>Submit FDA 510(k) application</li>
+                            <li>Publish validation results</li>
+                            <li>Scale to 10 sites, 50K patients</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        Q1-Q2 2027<br>
+                        <span style="font-size: 12px; font-weight: normal;">(Months 13-18)</span>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>FDA clearance obtained</li>
+                            <li>Commercial launch (5 anchor customers)</li>
+                            <li>Series A fundraising ($20M)</li>
+                            <li>100K monitored patients milestone</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Competitive Advantages -->
+        <div class="section section-alt">
+            <h3>Competitive Advantages</h3>
+            
+            <table class="info-table">
+                <tr>
+                    <th>Advantage</th>
+                    <th>Impact</th>
+                </tr>
+                <tr>
+                    <td><strong>Superior Accuracy</strong></td>
+                    <td>Risk models outperform existing solutions by 15-20% (AUC 0.82-0.87 vs 0.70-0.75)</td>
+                </tr>
+                <tr>
+                    <td><strong>Unified Platform</strong></td>
+                    <td>Only solution integrating prediction, monitoring, and care coordination in single platform</td>
+                </tr>
+                <tr>
+                    <td><strong>Real-Time Processing</strong></td>
+                    <td>IoMT integration enables continuous monitoring with 15-day advance warning for cardiac events</td>
+                </tr>
+                <tr>
+                    <td><strong>Clinical Safety</strong></td>
+                    <td>Proprietary three-tier oversight framework ensures patient safety and regulatory compliance</td>
+                </tr>
+                <tr>
+                    <td><strong>Proven Team</strong></td>
+                    <td>Leadership from Stanford, Mayo Clinic, Google Health with 80+ years combined experience</td>
+                </tr>
+                <tr>
+                    <td><strong>Scalable Economics</strong></td>
+                    <td>SaaS model with 85% gross margins, rapid deployment, and strong unit economics</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Financial Projections -->
+        <div class="section">
+            <h3>Financial Projections</h3>
+            
+            <table class="projections-table">
+                <tr>
+                    <th>Metric</th>
+                    <th>Year 1</th>
+                    <th>Year 2</th>
+                    <th>Year 3</th>
+                </tr>
+                <tr>
+                    <td>Monitored Patients</td>
+                    <td>50,000</td>
+                    <td>250,000</td>
+                    <td>1,000,000</td>
+                </tr>
+                <tr>
+                    <td>Revenue (PMPM $40)</td>
+                    <td>$24M</td>
+                    <td>$120M</td>
+                    <td>$480M</td>
+                </tr>
+                <tr>
+                    <td>Gross Margin</td>
+                    <td>75%</td>
+                    <td>82%</td>
+                    <td>85%</td>
+                </tr>
+                <tr>
+                    <td>EBITDA</td>
+                    <td>$12M</td>
+                    <td>$24M</td>
+                    <td>$168M</td>
+                </tr>
+            </table>
+
+            <p style="margin-top: 30px;"><strong>Revenue Model:</strong> Per-member-per-month (PMPM) pricing at $40 for comprehensive cardiovascular care management. Average contract value: $480K annually per 1,000 members.</p>
+        </div>
+
+        <!-- Current Traction -->
+        <div class="section section-alt">
+            <h3>Current Traction</h3>
+            
+            <table class="info-table">
+                <tr>
+                    <th style="width: 30%;">Category</th>
+                    <th>Achievements</th>
+                </tr>
+                <tr>
+                    <td><strong>Strategic Partnerships</strong></td>
+                    <td>
+                        • MOU with 3 major health systems (18M lives)<br>
+                        • Partnership with leading wearables manufacturer<br>
+                        • Academic Collaborations: Stanford Medicine, Weill Cornell Medicine, Harvard Medicine<br>
+                        • Advisory board: 8 prominent cardiologists
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Technical Milestones</strong></td>
+                    <td>
+                        • Platform MVP complete and tested<br>
+                        • Risk models validated (retrospective n=50,000)<br>
+                        • IoMT integration with 12+ device types<br>
+                        • HIPAA compliance and SOC 2 Type II certified
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h3>Join Us in Transforming Cardiac Care</h3>
+            <p style="max-width: 800px; margin: 0 auto; font-size: 18px; line-height: 1.8;">
+                We're seeking mission-aligned investors who share our vision of saving lives through AI-powered cardiovascular medicine. This is your opportunity to be part of a company that will prevent millions of cardiac events and fundamentally change how we care for heart patients.
+            </p>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>Investment Relations</h4>
+                    <p>Email: <a href="mailto:tonywell@cardioailive.com">tonywell@cardioailive.com</a></p>
+                    <p>Phone: <a href="tel:+16149678728">+1 (614) 967-8728</a></p>
+                </div>
+
+                <div class="contact-item">
+                    <h4>Chief Financial Officer</h4>
+                    <p>Everlyn Ndirangu</p>
+                    <p>Email: <a href="mailto:neverlyn1@cardioailive.com">neverlyn1@cardioailive.com</a></p>
+                    <p>Phone: <a href="tel:+9108827147">+9108827147</a></p>
+                </div>
+
+                <div class="contact-item">
+                    <h4>Offices</h4>
+                    <p>Dublin, Ohio</p>
+                    <p>San Francisco, California</p>
+                </div>
+
+                <div class="contact-item">
+                    <h4>Online</h4>
+                    <p>Company: <a href="http://www.cardioailive.com" target="_blank">www.cardioailive.com</a></p>
+                    <p>Project: <a href="http://www.cardioailivenet.com" target="_blank">www.cardioailivenet.com</a></p>
+                </div>
+            </div>
+
+            <div class="disclaimer">
+                <h4>CONFIDENTIAL</h4>
+                <p>This document contains confidential and proprietary information. Distribution is limited to qualified investors who have executed a non-disclosure agreement. This document does not constitute an offer to sell or a solicitation of an offer to buy any securities.</p>
+                <p style="margin-top: 15px;">Confidential Investment Memorandum • December 2025 • For Qualified Investors Only</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
